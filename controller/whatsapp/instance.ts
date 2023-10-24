@@ -25,7 +25,7 @@ export default class WhatsappInstance {
         }
         this.openAI = new OpenAI({
             // organization: "org-ovGrHek1fgjEkQppzk9joj78",
-            apiKey: "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",
+            apiKey: process.env.OPENAI_KEY,
         });
         this._initClient();
     }
