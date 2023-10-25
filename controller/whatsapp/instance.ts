@@ -24,8 +24,8 @@ export default class WhatsappInstance {
             this._initWhatsapp()
         }
         this.openAI = new OpenAI({
-            // organization: "org-ovGrHek1fgjEkQppzk9joj78",
             apiKey: process.env.OPENAI_KEY,
+            // organization: process.env.OPENAI_ORG,
         });
         this._initClient();
     }
