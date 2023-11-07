@@ -68,6 +68,24 @@ export class WhatsappController {
         }
     }
 
+    static async sendSingleMessage(req: Request, res: Response): Promise<any> {
+        try {
+            if(!!globalThis.instance){
+                const message: string = req.query.message?.toString() ?? ''
+                console.log(message);
+                const send = await globalThis.instance.waClient?.sendMessage('6287788437520@c.us', message)
+                res.status(200).json({ status: 200, data: { send, message }})
+            } else {
+                res.status(500).json({
+                    message: 'Instance is not ready'
+                })
+            }
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err)
+        }
+    }
+
 }
 
 export default WhatsappController
